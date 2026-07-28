@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Sentiment Analysis - Home</title>
+    <style> </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analyzer</h1>
+        <p>Enter your text below to classify its sentiment.</p>
+
+        <form action="/predict" method="POST">
+            <textarea name="review" placeholder="Enter message here" required>{{ review }}</textarea>
+            <br>
+            <button type="submit">Classify Sentiment</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result-box">
+                <h2 style="color: {{ text_color }}">Sentiment: {{ prediction }}</h2>
+            </div>
+        {% endif %}
+
+</body>
+</html>
